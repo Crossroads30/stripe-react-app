@@ -10,7 +10,7 @@ const AppProvider = ({ children }) => {
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 	const [isSubmenuOpen, setIsSubmenuOpen] = useState(false)
 	const [location, setLocation] = useState({}) // state of coordinates for submenu
-	const [text, setText] = useState('')
+	const [page, setPage] = useState({page: '', links: []})
 
 	const openSidebar = () => {
 		setIsSidebarOpen(true)
@@ -19,6 +19,8 @@ const AppProvider = ({ children }) => {
 		setIsSidebarOpen(false)
 	}
 	const openSubmenu = (text, coordinates) => {
+		const page = sublinks.find(link => link.page === text) // we find name of the page, that coming from the each nav button  
+		setPage(page)
 		setLocation(coordinates)
 		setIsSubmenuOpen(true)
 	}
@@ -36,6 +38,7 @@ const AppProvider = ({ children }) => {
 				openSubmenu,
 				closeSubmenu,
 				location,
+				page,
 			}}
 		>
 			{children}

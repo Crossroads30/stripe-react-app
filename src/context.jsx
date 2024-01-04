@@ -7,8 +7,8 @@ const AppContext = createContext()
 export const useGlobalContext = () => useContext(AppContext)
 
 const AppProvider = ({ children }) => {
-	const [isSidebarOpen, setIsSidebarOpen] = useState(true)
-	const [isSubmenuOpen, setIsSubmenuOpen] = useState(true)
+	const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+	const [isSubmenuOpen, setIsSubmenuOpen] = useState(false)
 
 	const openSidebar = () => {
 		setIsSidebarOpen(true)

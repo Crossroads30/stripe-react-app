@@ -9,6 +9,6 @@ export const useGlobalContext = () => useContext(AppContext)
 const AppProvider = ({children}) => {
 const [links, setLinks] = useState(sublinks)
 
-  return <AppContext.Provider value={'hello'}>{children}</AppContext.Provider>
+  return <AppContext.Provider value={links}>{children}</AppContext.Provider>
 }
 export default AppProvider

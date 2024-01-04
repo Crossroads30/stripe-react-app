@@ -9,6 +9,8 @@ export const useGlobalContext = () => useContext(AppContext)
 const AppProvider = ({ children }) => {
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 	const [isSubmenuOpen, setIsSubmenuOpen] = useState(false)
+	const [location, setLocation] = useState({}) // state of coordinates for submenu
+	const [text, setText] = useState('')
 
 	const openSidebar = () => {
 		setIsSidebarOpen(true)
@@ -16,7 +18,8 @@ const AppProvider = ({ children }) => {
 	const closeSidebar = () => {
 		setIsSidebarOpen(false)
 	}
-	const openSubmenu = () => {
+	const openSubmenu = (text, coordinates) => {
+		setLocation(coordinates)
 		setIsSubmenuOpen(true)
 	}
 	const closeSubmenu = () => {
@@ -32,6 +35,7 @@ const AppProvider = ({ children }) => {
 				isSubmenuOpen,
 				openSubmenu,
 				closeSubmenu,
+				location,
 			}}
 		>
 			{children}

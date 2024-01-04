@@ -1,23 +1,39 @@
 import React from 'react'
 import logo from './images/logo.svg'
 import { FaBars } from 'react-icons/fa'
+import { useGlobalContext } from './context'
 
 const Navbar = () => {
+	const { openSidebar, openSubmenu, closeSubmenu } = useGlobalContext()
 	return (
-		<section className='section'>
-			<nav className='nav'>
+		<nav className='nav'>
+			<div className='nav-center'>
 				<div className='nav-header'>
-					<img src={logo} alt='stripeLogo' />
+					<img className='nav-logo' src={logo} alt='stripe-logo' />
+					<button onClick={openSidebar} className='btn toggle-btn' type='button'>
+						<FaBars />
+					</button>
 				</div>
-				<div className='nav-center'>
-					<ul className='nav-links'>
-					</ul>
-				</div>
-				<button className='btn' type='button'>
-					Sing in
-				</button>
-			</nav>
-		</section>
+				<ul className='nav-links'>
+          <li>
+            <button className='link-btn'>
+              products
+            </button>
+          </li>
+          <li>
+            <button className='link-btn'>
+              developers
+            </button>
+          </li>
+          <li>
+            <button className='link-btn'>
+              companies
+            </button>
+          </li>
+        </ul>
+        <button className='btn'>sing in</button>
+			</div>
+		</nav>
 	)
 }
 

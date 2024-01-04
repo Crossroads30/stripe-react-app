@@ -22,12 +22,8 @@ const Navbar = () => {
 		<nav className='nav'>
 			<div className='nav-center'>
 				<div className='nav-header'>
-					<img className='nav-logo' src={logo} alt='stripe-logo' />
-					<button
-						onClick={openSidebar}
-						className='btn toggle-btn'
-						type='button'
-					>
+					<img src={logo} className='nav-logo' alt='' />
+					<button className='btn toggle-btn' onClick={openSidebar}>
 						<FaBars />
 					</button>
 				</div>
@@ -44,11 +40,11 @@ const Navbar = () => {
 					</li>
 					<li>
 						<button className='link-btn' onMouseOver={displaySubmenu}>
-							companies
+							company
 						</button>
 					</li>
 				</ul>
-				<button className='btn signin-btn'>sing in</button>
+				<button className='btn signin-btn'>Sign in</button>
 			</div>
 		</nav>
 	)
